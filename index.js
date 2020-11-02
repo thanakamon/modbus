@@ -1,13 +1,22 @@
 const { Mongoose, MongooseDocument } = require('mongoose');
 var mongoose=require('./config/mongoose');
-var modbusModel=Mongoose.model('modbus');
 var modbusRTU=require('./config/modbus');
-mongoose();
+var db=mongoose();
+var modbusModel=db.model('modbus');
 
 setInterval(()=>{
     modbusRTU.readInputRegisters(1,2)
     .then((data)=>{
-        console.log(data);
+        var allData=data.data;
+        var model={
+            temperature: allData[0],
+            humidity: allData[1],
+            datetime: Date.now()
+        }
+        modbusModel.insertMany(model,(err,docs)=>{
+            if(err)console.log(err);
+            else console.log(docs)
+        });
     }).catch((e)=>{
         console.log(e.message);
     })
