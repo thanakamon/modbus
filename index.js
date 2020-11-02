@@ -20,4 +20,4 @@ setInterval(()=>{
     }).catch((e)=>{
         console.log(e.message);
     })
-},1000);
+},60000);
