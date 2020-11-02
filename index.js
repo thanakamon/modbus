@@ -9,8 +9,8 @@ setInterval(()=>{
     .then((data)=>{
         var allData=data.data;
         var model={
-            temperature: allData[0],
-            humidity: allData[1],
+            temperature: allData[0]/10,
+            humidity: allData[1]/10,
             datetime: Date.now()
         }
         modbusModel.insertMany(model,(err,docs)=>{
