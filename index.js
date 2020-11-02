@@ -15,7 +15,7 @@ setInterval(()=>{
         }
         modbusModel.insertMany(model,(err,docs)=>{
             if(err)console.log(err);
-            else console.log(docs)
+            // else console.log(docs)
         });
     }).catch((e)=>{
         console.log(e.message);
