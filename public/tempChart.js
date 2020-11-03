@@ -9,7 +9,6 @@ angular.module("app", ["chart.js","datatables"])
     // Configure all line charts
     ChartJsProvider.setOptions('line', {
         showLines: true,
-        fill: false
     });
 }])
 .controller("LineCtrl", ['$scope', '$interval', '$http', function ($scope, $interval, $http) {
@@ -26,9 +25,11 @@ angular.module("app", ["chart.js","datatables"])
         legend:{
             display: true
         },
-        line:{
-            borderColor:['#FF5252', '#4682B4'],
-        }
+	elements:{
+	    line:{
+		fill: false
+	    }
+	}
     }
 
     var refresh=()=>{
@@ -64,7 +65,7 @@ angular.module("app", ["chart.js","datatables"])
 //.controller('DatatablesCtrl',DatatablesCtrl)
 .filter('formatAsDate',function(){
     return function(dateTime){
-        return moment(dateTime).utc().format('YYYY-MM-DD HH:mm');
+        return moment(dateTime).format('YYYY-MM-DD HH:mm');
     }
 });
 
