@@ -3,15 +3,14 @@ const db = require("../../config/mongoose")();
 var modbusModel=db.model('modbus');
 
 var render=(req,res)=>{
-    modbusModel.find({},(err,data)=>{
-	    if(!err)res.render('index',{tempData: data});
-    });
+    res.send("This is API page");
 }
 
 var modbus=(req,res)=>{
     modbusModel.find({},(err,data)=>{
         if(!err){
             console.log(data);
+            res.json(data);
             /*let detail=new Array();
             let tmp={};
             data.forEach((item,index)=>{
