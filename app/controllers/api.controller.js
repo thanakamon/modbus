@@ -11,13 +11,15 @@ var modbus=(req,res)=>{
         if(!err){
             console.log(data);
             res.json(data);
-            /*let detail=new Array();
+            let detail=new Array();
             let tmp={};
             data.forEach((item,index)=>{
-		        if(!item.temperature||!item.humidity||item.humidity>100)return;
-                let dt=new Date(Date.UTC(item.year, (item.month-1), item.day, item.hour, item.minute));
+		        if(!item.temperature||!item.humidity||item.humidity>100||item.temperature>100)return;
+                let dt=new Date(item.datetime);
                 detail.push({'dateTime':dt, 'temperature':item.temperature, 'humidity':item.humidity});
             });
+            res.json(data);
+            return;
             detail.sort((a,b)=>{
                 return b.dateTime-a.dateTime;
             });
