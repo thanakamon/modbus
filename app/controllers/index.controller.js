@@ -1,18 +1,18 @@
-const { temp_rtc } = require('../models/temp_rtc.model');
+//const { temp_rtc } = require('../models/temp_rtc.model');
 
 var render=(req,res)=>{
-    temp_rtc.find({},(err,data)=>{
+    /*temp_rtc.find({},(err,data)=>{
 	    if(!err)res.render('index',{tempData: data});
-    });
+    });*/
 }
 
 var addData=(req,res)=>{
-    var r=temp_rtc.insertMany(req.body);
-    res.json(r)
+    /*var r=temp_rtc.insertMany(req.body);
+    res.json(r)*/
 }
 
 var getData=(req,res)=>{
-    temp_rtc.find({},(err,data)=>{
+    /*temp_rtc.find({},(err,data)=>{
         if(!err){
             let detail=new Array();
             let tmp={};
@@ -36,7 +36,7 @@ var getData=(req,res)=>{
 	        });
             res.json({detail:detail, average: result.slice(0,7)});
         }
-    })
+    })*/
 }
 
 module.exports={

@@ -1,6 +1,6 @@
-const mongoose = require("../../config/mongoose");
+const db = require("../../config/mongoose")();
 
-var modbusModel=mongoose.model('modbus');
+var modbusModel=db.model('modbus');
 
 var render=(req,res)=>{
     modbusModel.find({},(err,data)=>{

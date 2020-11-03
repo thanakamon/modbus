@@ -14,5 +14,6 @@ module.exports=()=>{
     app.set('views','./app/views');
     app.set('view engine', 'jade');
     require('../app/routes/index.route')(app);
+    require('../app/routes/api.route')(app);
     return app;
 }
