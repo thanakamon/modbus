@@ -9,13 +9,11 @@ var render=(req,res)=>{
 var modbus=(req,res)=>{
     modbusModel.find({},(err,data)=>{
         if(!err){
-            //console.log(data);
-            //res.json(data);
             let detail=new Array();
             let tmp={};
-	    data.sort((a,b)=>{
-		return b.datetime-a.datetime;
-	    });
+	        data.sort((a,b)=>{
+		        return b.datetime-a.datetime;
+	        });
             data.forEach((item,index)=>{
 		        if(!item.temperature||!item.humidity||item.humidity>100||item.temperature>100)return;
                 let dt=new Date(parseInt(item.datetime));
