@@ -7,7 +7,7 @@ var db=mongoose();
 var modbusModel=db.model('modbus');
 var app=express();
 app.use(cors());
-app.listen(3009);
+app.listen(3008);
 
 setInterval(()=>{
     modbusRTU.readInputRegisters(1,2)
@@ -29,4 +29,4 @@ setInterval(()=>{
 
 module.exports=app;
 
-console.log('Server running at http://localhost:3009');
+console.log('Server running at http://localhost:3008');
